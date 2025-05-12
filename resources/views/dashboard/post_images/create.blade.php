@@ -425,9 +425,9 @@
          </button>
     </div>
 </div>
-<input type="file" class="d-none" id="featured_image" name="featured_image" accept="image/*">
+<input type="file" class="d-none" id="image_path" name="image_path" accept="image/*">
                             <div class="form-text">Recommended size: 1200 x 630 pixels. Maximum file size: 2MB.</div>
-                            @error('featured_image')
+                            @error('image_path')
                                 <div class="text-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
@@ -533,7 +533,7 @@
       });
 
       document.addEventListener('DOMContentLoaded', function() {
-    const featuredInput = document.getElementById('featured_image');
+    const featuredInput = document.getElementById('image_path');
     const uploadTrigger = document.getElementById('upload-featured-trigger');
     const replaceBtn = document.getElementById('replace-featured');
     const removeBtn = document.getElementById('remove-featured');

@@ -361,26 +361,7 @@
             gap: 0.5rem;
         }
         
-        .search-box {
-            position: relative;
-        }
-        
-        .search-box .form-control {
-            padding-left: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid #ced4da;
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-        }
-        
-        .search-box .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6c757d;
-        }
-        
+       
         .form-control:focus {
             border-color: #0d6efd;
             box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
@@ -574,11 +555,14 @@
             
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('post-images.index') }}">Dashboard</a>
+                        <a class="nav-link" href="{{ route('blogs.index') }}">Blogs</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('post-images.index') }}">Images</a>
                     </li>
                 </ul>
                 
@@ -645,12 +629,7 @@
             <div class="card-body p-4">
                 <form method="GET" action="{{ url()->current() }}">
                     <div class="row g-3 align-items-center">
-                        <div class="col-md-6">
-                            <div class="search-box">
-                                <i class="bi bi-search search-icon"></i>
-                                <input type="text" name="search" class="form-control" placeholder="Search post-images..." value="{{ request('search', '') }}">
-                            </div>
-                        </div>
+                       
                         <div class="col-md-2">
                             <select name="status" class="form-select">
                                 <option value="">All Status</option>
@@ -682,8 +661,7 @@
                 <table class="table align-middle">
                     <thead>
                         <tr>
-                            <th style="width: 80px;">Image</th>
-                            <th>Title & Content</th>
+                            <th style="width: 200px;">Image</th>
                             <th style="width: 150px;">Status</th>
                             <th style="width: 180px;">Published Date</th>
                             <th style="width: 180px;">Actions</th>
@@ -693,19 +671,16 @@
                         @foreach ($postImages as $post_image)
                         <tr>
                             <td>
-                                <img src="/storage/{{ $post_image->featured_image }}" class="table-img" alt="Post image">
+                                <img src="/storage/{{ $post_image->image_path}}" class="table-img" alt="Post image">
                             </td>
-                            <td>
-                                <div class="table-title">{{$post_image->title}}</div>
-                                <div class="table-content">{!! strip_tags($post_image->content) !!}</div>
-                            </td>
+                       
                             <td>
                                 <span class="status-badge status-{{ $post_image->status }}">{{ $post_image->status }}</span>
                             </td>
                             <td>{{$post_image->published_at?->format('D, d M Y')}}</td>
                             <td>
                                 <div class="action-buttons">
-                                    <a href="{{ route('detail', $post_image->id) }}" class="btn btn-info btn-sm">
+                                    <a href="{{ route('detail.post-image', $post_image->id) }}" class="btn btn-info btn-sm">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                     <a href="{{ route('post-images.edit', $post_image->id) }}" class="btn btn-warning btn-sm">
@@ -724,25 +699,14 @@
         </div>
         
         <div class="d-flex justify-content-between align-items-center">
-            <div class="text-muted">Showing 1 to 5 of 12 entries</div>
-            <nav>
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <i class="bi bi-chevron-left"></i>
-                        </a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <div class="text-muted">
+        Showing {{ $postImages->firstItem() }} to {{ $postImages->lastItem() }} of {{ $postImages->total() }} entries
+    </div>
+    <div>
+        {{ $postImages->links('pagination::bootstrap-5') }} 
+    </div>
+</div>
+
     </div>
     
     @foreach ($postImages as $post_image)

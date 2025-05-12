@@ -327,14 +327,15 @@
             
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('index') }}">Home</a>
+                     <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('index') }}">Home</a>
                     </li>
-                  
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blogs.index') }}">Dashboard</a>
+                        <a class="nav-link" href="{{ route('blogs.index') }}">Blogs</a>
                     </li>
-                  
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('post-images.index') }}">Images</a>
+                    </li>
                 </ul>
                 
                 <!-- Guest View (Not Logged In) -->
@@ -457,7 +458,7 @@
                             </div>
                         </div>
                         <div class="card-footer bg-white border-0 pt-0">
-                            <a href="{{ route('detail', $blog->id) }}" class="read-more">Read more <i class="bi bi-arrow-right"></i></a>
+                            <a href="{{ route('detail.blog', $blog->id) }}" class="read-more">Read more <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -465,6 +466,54 @@
         </div>
 
         @if($blogs->isEmpty())
+            <div class="empty-state">
+                <div class="empty-icon">
+                    <i class="bi bi-journal-x"></i>
+                </div>
+                <h3>No blogs found</h3>
+                <p class="text-muted">Check back later for new content</p>
+            </div>
+        @endif
+    </div>
+
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 blog-title">Our Post</h1>
+                <p class="lead text-muted">Discover the latest articles and insights from our team</p>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach ($postImages as $post_image)
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class=" card-img-top">
+                           <img src="/storage/{{$post_image->image_path  }}" alt="">
+                        </div>
+                    
+                        <div class="card-body">
+                          
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="author-badge line-clamp-1">
+                                    <i class="bi bi-person-fill me-1"></i>
+                                    {{ $post_image->user->name ?? 'Fawwaz' }}
+                                </span>
+                                <span class="date-badge">
+                                    <i class="bi bi-calendar3 me-1"></i>
+                                    {{ $post_image->published_at->format('F j, Y') }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pt-0">
+                            <a href="{{ route('detail.post-image', $post_image->id) }}" class="read-more">Read more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        @if($postImages->isEmpty())
             <div class="empty-state">
                 <div class="empty-icon">
                     <i class="bi bi-journal-x"></i>

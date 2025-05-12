@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_images', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->text('body');
+            $table->morphs('commentable'); 
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-            $table->string('image_path')->nullable();
-            $table->timestamp('published_at')->nullable();
-            $table->enum('status', ['draft', 'scheduled', 'published'])->default('draft');
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
-            
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_images');
+        Schema::dropIfExists('comments');
     }
 };

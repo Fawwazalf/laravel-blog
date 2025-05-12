@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $blog->title }} - Blog Detail</title>
+    <title>{{ $post_image->title }} - Blog Detail</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
             line-height: 1.7;
         }
         
-        .blog-header {
+        .post-image-header {
             position: relative;
             height: 400px;
             background-color: #343a40;
@@ -27,14 +27,14 @@
             overflow: hidden;
         }
         
-        .blog-header-img {
+        .post-image-header-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             opacity: 0.8;
         }
         
-        .blog-header-overlay {
+        .post-image-header-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -48,14 +48,14 @@
             color: white;
         }
         
-        .blog-title {
+        .post-image-title {
             font-weight: 700;
             font-size: 2.5rem;
             margin-bottom: 1rem;
             line-height: 1.2;
         }
         
-        .blog-meta {
+        .post-image-meta {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
@@ -63,18 +63,18 @@
             margin-bottom: 1rem;
         }
         
-        .blog-meta-item {
+        .post-image-meta-item {
             display: flex;
             align-items: center;
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.9);
         }
         
-        .blog-meta-item i {
+        .post-image-meta-item i {
             margin-right: 0.5rem;
         }
         
-        .blog-content {
+        .post-image-content {
             background-color: white;
             border-radius: 12px;
             padding: 2.5rem;
@@ -82,32 +82,32 @@
             margin-bottom: 2rem;
         }
         
-        .blog-content p {
+        .post-image-content p {
             margin-bottom: 1.5rem;
             font-size: 1.05rem;
         }
         
-        .blog-content h2 {
+        .post-image-content h2 {
             font-weight: 600;
             margin-top: 2rem;
             margin-bottom: 1rem;
             font-size: 1.75rem;
         }
         
-        .blog-content h3 {
+        .post-image-content h3 {
             font-weight: 600;
             margin-top: 1.75rem;
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
         
-        .blog-content img {
+        .post-image-content img {
             max-width: 100%;
             border-radius: 8px;
             margin: 1.5rem 0;
         }
         
-        .blog-content blockquote {
+        .post-image-content blockquote {
             border-left: 4px solid #0d6efd;
             padding-left: 1.5rem;
             margin-left: 0;
@@ -116,16 +116,16 @@
             color: #495057;
         }
         
-        .blog-content ul, .blog-content ol {
+        .post-image-content ul, .post-image-content ol {
             margin-bottom: 1.5rem;
             padding-left: 1.5rem;
         }
         
-        .blog-content li {
+        .post-image-content li {
             margin-bottom: 0.5rem;
         }
         
-        .blog-tags {
+        .post-image-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
@@ -134,7 +134,7 @@
             border-top: 1px solid #e9ecef;
         }
         
-        .blog-tag {
+        .post-image-tag {
             background-color: #e9ecef;
             color: #495057;
             padding: 0.4rem 0.8rem;
@@ -144,19 +144,19 @@
             transition: all 0.2s;
         }
         
-        .blog-tag:hover {
+        .post-image-tag:hover {
             background-color: #0d6efd;
             color: white;
             text-decoration: none;
         }
         
-        .blog-navigation {
+        .post-image-navigation {
             display: flex;
             justify-content: space-between;
             margin-bottom: 2rem;
         }
         
-        .blog-nav-link {
+        .post-image-nav-link {
             display: flex;
             align-items: center;
             color: #0d6efd;
@@ -165,24 +165,24 @@
             transition: all 0.2s;
         }
         
-        .blog-nav-link:hover {
+        .post-image-nav-link:hover {
             color: #0a58ca;
             text-decoration: underline;
         }
         
-        .blog-nav-link i {
+        .post-image-nav-link i {
             font-size: 1.2rem;
         }
         
-        .blog-nav-prev i {
+        .post-image-nav-prev i {
             margin-right: 0.5rem;
         }
         
-        .blog-nav-next i {
+        .post-image-nav-next i {
             margin-left: 0.5rem;
         }
         
-        .blog-author {
+        .post-image-author {
             background-color: white;
             border-radius: 12px;
             padding: 2rem;
@@ -192,7 +192,7 @@
             margin-bottom: 2rem;
         }
         
-        .blog-author-avatar {
+        .post-image-author-avatar {
             width: 80px;
             height: 80px;
             border-radius: 50%;
@@ -205,30 +205,30 @@
             flex-shrink: 0;
         }
         
-        .blog-author-info h4 {
+        .post-image-author-info h4 {
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
         
-        .blog-author-info p {
+        .post-image-author-info p {
             color: #6c757d;
             margin-bottom: 0;
         }
         
-        .blog-more {
+        .post-image-more {
             margin-bottom: 2rem;
             overflow-y: scroll;
             height: 1200px;
         }
         
-        .blog-more-title {
+        .post-image-more-title {
             font-weight: 700;
             position: relative;
             display: inline-block;
             margin-bottom: 1.5rem;
         }
         
-        .blog-more-title:after {
+        .post-image-more-title:after {
             content: '';
             position: absolute;
             width: 70px;
@@ -280,21 +280,21 @@
             text-decoration: underline;
         }
         
-        .blog-comments {
+        .post-image-comments {
             background-color: white;
             border-radius: 12px;
             padding: 2rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
-        .blog-comments-title {
+        .post-image-comments-title {
             font-weight: 700;
             position: relative;
             display: inline-block;
             margin-bottom: 1.5rem;
         }
         
-        .blog-comments-title:after {
+        .post-image-comments-title:after {
             content: '';
             position: absolute;
             width: 70px;
@@ -305,18 +305,18 @@
             border-radius: 2px;
         }
         
-        .blog-comment {
+        .post-image-comment {
             display: flex;
             gap: 1rem;
             padding: 1.5rem 0;
             border-bottom: 1px solid #e9ecef;
         }
         
-        .blog-comment:last-child {
+        .post-image-comment:last-child {
             border-bottom: none;
         }
         
-        .blog-comment-avatar {
+        .post-image-comment-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -329,29 +329,29 @@
             flex-shrink: 0;
         }
         
-        .blog-comment-content h5 {
+        .post-image-comment-content h5 {
             font-weight: 600;
             font-size: 1rem;
             margin-bottom: 0.25rem;
         }
         
-        .blog-comment-date {
+        .post-image-comment-date {
             font-size: 0.8rem;
             color: #6c757d;
             margin-bottom: 0.5rem;
         }
         
-        .blog-comment-text {
+        .post-image-comment-text {
             color: #495057;
         }
         
-        .blog-comment-form {
+        .post-image-comment-form {
             margin-top: 2rem;
             padding-top: 1.5rem;
             border-top: 1px solid #e9ecef;
         }
         
-        .blog-comment-form h4 {
+        .post-image-comment-form h4 {
             font-weight: 600;
             margin-bottom: 1rem;
         }
@@ -381,7 +381,7 @@
             border-color: #0a58ca;
         }
         
-        .back-to-blogs {
+        .back-to-post_images {
             display: inline-flex;
             align-items: center;
             color: #0d6efd;
@@ -391,12 +391,12 @@
             transition: all 0.2s;
         }
         
-        .back-to-blogs:hover {
+        .back-to-post_images:hover {
             color: #0a58ca;
             text-decoration: underline;
         }
         
-        .back-to-blogs i {
+        .back-to-post_images i {
             margin-right: 0.5rem;
         }
         
@@ -467,30 +467,30 @@
         }
         
         @media (max-width: 767.98px) {
-            .blog-header {
+            .post-image-header {
                 height: 300px;
             }
             
-            .blog-title {
+            .post-image-title {
                 font-size: 1.75rem;
             }
             
-            .blog-meta {
+            .post-image-meta {
                 gap: 1rem;
             }
             
-            .blog-content {
+            .post-image-content {
                 padding: 1.5rem;
             }
             
-            .blog-author {
+            .post-image-author {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
                 padding: 1.5rem;
             }
             
-            .blog-comment {
+            .post-image-comment {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
@@ -500,15 +500,15 @@
 </head>
 <body>
     <div class="container py-5">
-        <a href="{{ route('index') }}" class="back-to-blogs">
+        <a href="{{ route('index') }}" class="back-to-post_images">
             <i class="bi bi-arrow-left"></i> Back to Blogs
         </a>
         
-        <div class="blog-header">
+        <div class="post-image-header">
             
               @php
-                    $galleryImages = json_decode($blog->gallery_images, true) ?? [];
-                    $allImages = array_merge([$blog->featured_image], $galleryImages);
+                    $galleryImages = json_decode($post_image->gallery_images, true) ?? [];
+                    $allImages = array_merge([$post_image->featured_image], $galleryImages);
                 @endphp
                 
                 <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
@@ -520,7 +520,7 @@
                   <div class="carousel-inner">
                     @foreach ($allImages as $index => $image)
                       <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                        <img src="{{ asset('storage/' . $image) }}" class="blog-header-img" alt="Slide {{ $index + 1 }}">
+                        <img src="{{ asset('storage/' . $image) }}" class="post-image-header-img" alt="Slide {{ $index + 1 }}">
                       </div>
                     @endforeach
                   </div>
@@ -533,18 +533,18 @@
                     <span class="visually-hidden">Next</span>
                   </button>
                 </div>
-            <div class="blog-header-overlay">
-                <h1 class="blog-title">{{ $blog->title }}</h1>
-                <div class="blog-meta">
-                    <div class="blog-meta-item">
+            <div class="post-image-header-overlay">
+                <h1 class="post-image-title">{{ $post_image->title }}</h1>
+                <div class="post-image-meta">
+                    <div class="post-image-meta-item">
                         <i class="bi bi-person-fill"></i>
-                        {{ $blog->user->name ?? 'Fawwaz' }}
+                        {{ $post_image->user->name ?? 'Fawwaz' }}
                     </div>
-                    <div class="blog-meta-item">
+                    <div class="post-image-meta-item">
                         <i class="bi bi-calendar3"></i>
-                        {{ $blog->published_at->format('F j, Y') }}
+                        {{ $post_image->published_at->format('F j, Y') }}
                     </div>
-                    <div class="blog-meta-item reading-time">
+                    <div class="post-image-meta-item reading-time">
                         <i class="bi bi-clock"></i>
                         5 min read
                     </div>
@@ -554,17 +554,17 @@
         
         <div class="row">
             <div class="col-lg-8">
-                <div class="blog-content">
+                <div class="post-image-content">
                     <p>
-                        {!! $blog->content !!}
+                        {!! $post_image->content !!}
                     </p>
     
                     
-                    <div class="blog-tags">
-                        <a href="#" class="blog-tag">Technology</a>
-                        <a href="#" class="blog-tag">Design</a>
-                        <a href="#" class="blog-tag">Development</a>
-                        <a href="#" class="blog-tag">Web</a>
+                    <div class="post-image-tags">
+                        <a href="#" class="post-image-tag">Technology</a>
+                        <a href="#" class="post-image-tag">Design</a>
+                        <a href="#" class="post-image-tag">Development</a>
+                        <a href="#" class="post-image-tag">Web</a>
                     </div>
                     
                     <div class="social-share">
@@ -576,74 +576,54 @@
                     </div>
                 </div>
                 
-                <div class="blog-navigation">
-                    <a href="{{ route('detail', $previousBlog) }}" class="blog-nav-link blog-nav-prev">
+                <div class="post-image-navigation">
+                        @if ($previousPostImage)
+                    <a href="{{ route('detail.post-image', $previousPostImage) }}" class="post-image-nav-link post-image-nav-prev">
                         <i class="bi bi-arrow-left"></i> Previous Post
                     </a>
-                    @if ($nextBlog)
-                    <a href="{{ route('detail', $nextBlog) }}" class="blog-nav-link blog-nav-next">
+                     @endif
+                    @if ($nextPostImage)
+                    <a href="{{ route('detail.post-image', $nextPostImage) }}" class="post-image-nav-link post-image-nav-next">
                         Next Post <i class="bi bi-arrow-right"></i>
                     </a>
                     @endif
                 </div>
                 
-                <div class="blog-author">
-                    <div class="blog-author-avatar">
+                <div class="post-image-author">
+                    <div class="post-image-author-avatar">
                         <i class="bi bi-person"></i>
                     </div>
-                    <div class="blog-author-info">
-                        <h4>{{ $blog->user->name ?? 'Fawwaz' }}</h4>
+                    <div class="post-image-author-info">
+                        <h4>{{ $post_image->user->name ?? 'Fawwaz' }}</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.</p>
                     </div>
                 </div>
                 
-                <div class="blog-comments">
-                    <h3 class="blog-comments-title">Comments (3)</h3>
-                    
-                    <div class="blog-comment">
-                        <div class="blog-comment-avatar">
+                <div class="post-image-comments">
+                    <h3 class="post-image-comments-title">Comments ({{ $post_image->comments?->count() }})</h3>
+                    @foreach ($post_image->comments as $comment)
+                    <div class="post-image-comment">
+                        <div class="post-image-comment-avatar">
                             <i class="bi bi-person"></i>
                         </div>
-                        <div class="blog-comment-content">
-                            <h5>John Doe</h5>
-                            <div class="blog-comment-date">May 15, 2023</div>
-                            <p class="blog-comment-text">Great article! Thanks for sharing these insights.</p>
+                        <div class="post-image-comment-content">
+                            <h5>{{$comment->user->name}}</h5>
+                            <div class="post-image-comment-date">{{$comment->created_at?->format('D, m M Y')}}</div>
+                            <p class="post-image-comment-text">{{$comment->body}}</p>
                         </div>
                     </div>
+                    @endforeach
                     
-                    <div class="blog-comment">
-                        <div class="blog-comment-avatar">
-                            <i class="bi bi-person"></i>
-                        </div>
-                        <div class="blog-comment-content">
-                            <h5>Jane Smith</h5>
-                            <div class="blog-comment-date">May 14, 2023</div>
-                            <p class="blog-comment-text">I've been looking for this information for a while. Very helpful!</p>
-                        </div>
-                    </div>
+                 
                     
-                    <div class="blog-comment">
-                        <div class="blog-comment-avatar">
-                            <i class="bi bi-person"></i>
-                        </div>
-                        <div class="blog-comment-content">
-                            <h5>Robert Johnson</h5>
-                            <div class="blog-comment-date">May 12, 2023</div>
-                            <p class="blog-comment-text">Do you have any additional resources on this topic? I'd love to learn more.</p>
-                        </div>
-                    </div>
+                   
                     
-                    <div class="blog-comment-form">
+                    <div class="post-image-comment-form">
                         <h4>Leave a Comment</h4>
-                        <form>
+                        <form action="{{ route('comments.store', ['type' => 'post-image', 'id' => $post_image->id]) }}" method="POST">
+                            @csrf
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
-                            </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="4" placeholder="Your Comment" required></textarea>
+                                <textarea class="form-control" rows="4" placeholder="Your Comment" name="body" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Post Comment</button>
                         </form>
@@ -652,44 +632,35 @@
             </div>
             
             <div class="col-lg-4">
-                <div class="blog-more">
-                    <h3 class="blog-more-title">More Blogs</h3>
-                    @foreach ($blogs as $moreBlog)
+                <div class="post-image-more">
+                    <h3 class="post-image-more-title">More Posts</h3>
+                    @foreach ($post_images as $post_image)
                     <div class="card mb-4 shadow-sm">
-                       @php
-                        $carouselId = 'carousel-' . $moreBlog->id;
-                        $featuredImage = is_array($moreBlog->featured_image) ? ($moreBlog->featured_image[0] ?? null) : $moreBlog->featured_image;
-                        $galleryImages = json_decode($moreBlog->gallery_images, true) ?? [];
-                        $allImages = array_filter(array_merge([$featuredImage], $galleryImages));
-                        @endphp
                     
-                        <div id="{{ $carouselId }}" class="carousel slide card-img-top" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                @foreach ($allImages as $index => $image)
-                                    <button type="button" data-bs-target="#{{ $carouselId }}" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" aria-current="{{ $index === 0 ? 'true' : 'false' }}" aria-label="Slide {{ $index + 1 }}"></button>
-                                @endforeach
-                            </div>
-                            <div class="carousel-inner">
-                                @foreach ($allImages as $index => $image)
-                                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                        <img src="{{ asset('storage/' . $image) }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
-                                    </div>
-                                @endforeach
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#{{ $carouselId }}" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#{{ $carouselId }}" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                    
+                    <div class="card h-100 shadow-sm">
+                        <div class=" card-img-top">
+                           <img src="/storage/{{$post_image->image_path  }}" alt="">
                         </div>
+                    
                         <div class="card-body">
-                            <h5 class="card-title">{{$moreBlog->title}}</h5>
-                            <p class="card-text">{!!strip_tags($moreBlog->content)!!}</p>
-                            <a href="{{ route('detail', $moreBlog) }}" class="read-more">Read more <i class="bi bi-arrow-right"></i></a>
+                          
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="author-badge line-clamp-1">
+                                    <i class="bi bi-person-fill me-1"></i>
+                                    {{ $post_image->user->name ?? 'Fawwaz' }}
+                                </span>
+                                <span class="date-badge">
+                                    <i class="bi bi-calendar3 me-1"></i>
+                                    {{ $post_image->published_at->format('F j, Y') }}
+                                </span>
+                            </div>
                         </div>
+                        <div class="card-footer bg-white border-0 pt-0">
+                            <a href="{{ route('detail.post-image', $post_image->id) }}" class="read-more">Read more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                
                     </div>
                     @endforeach
                 </div>

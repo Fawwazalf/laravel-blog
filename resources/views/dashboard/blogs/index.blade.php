@@ -578,7 +578,10 @@
                         <a class="nav-link" href="{{ route('index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blogs.index') }}">Dashboard</a>
+                        <a class="nav-link active" href="{{ route('blogs.index') }}">Blogs</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('post-images.index') }}">Images</a>
                     </li>
                 </ul>
                 
@@ -705,7 +708,7 @@
                             <td>{{$blog->published_at?->format('D, d M Y')}}</td>
                             <td>
                                 <div class="action-buttons">
-                                    <a href="{{ route('detail', $blog->id) }}" class="btn btn-info btn-sm">
+                                    <a href="{{ route('detail.blog', $blog->id) }}" class="btn btn-info btn-sm">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                     <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-warning btn-sm">
@@ -724,24 +727,12 @@
         </div>
         
         <div class="d-flex justify-content-between align-items-center">
-            <div class="text-muted">Showing 1 to 5 of 12 entries</div>
-            <nav>
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <i class="bi bi-chevron-left"></i>
-                        </a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+             <div class="text-muted">
+        Showing {{ $blogs->firstItem() }} to {{ $blogs->lastItem() }} of {{ $blogs->total() }} entries
+    </div>
+    <div>
+        {{ $blogs->links('pagination::bootstrap-5') }} 
+    </div>
         </div>
     </div>
     

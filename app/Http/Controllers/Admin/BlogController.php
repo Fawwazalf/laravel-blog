@@ -16,7 +16,7 @@ class BlogController extends Controller
         $perPage = $request->input('perPage', 10); 
     
        
-        $blogs = Blog::query()->with('user:id,name');
+        $blogs = Blog::where('user_id', Auth::user()->id)->with('user:id,name');
     
         
         if ($search) {
@@ -31,7 +31,7 @@ class BlogController extends Controller
         }
     
        
-        $blogs = $blogs->latest('published_at')->paginate($perPage);
+        $blogs = $blogs->latest('created_at')->paginate($perPage);
         
         return view('dashboard.blogs.index', compact('blogs', 'search', 'status', 'perPage'));
     }

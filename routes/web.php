@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\PostImageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController as ControllersBlogController;
-use App\Http\Controllers\PostImageController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PostImageController as ControllersPostImageController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
 use App\Models\Blog;
@@ -16,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 
-Route::get('blog/{id}', [ControllersBlogController::class, 'show'])->name('detail');
+Route::get('blog/{id}', [ControllersBlogController::class, 'show'])->name('detail.blog');
+Route::get('post-image/{id}', [ControllersPostImageController::class, 'show'])->name('detail.post-image');
 Route::get('/', [ControllersBlogController::class, 'index'])->name('index');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -28,6 +31,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('dashboard/blogs',BlogController::class)->middleware('auth');
 Route::resource('dashboard/post-images', PostImageController::class)->middleware('auth');
+Route::post('/comments/{type}/{id}', [CommentController::class, 'store'])->name('comments.store');
+
 
 
 Route::get('/forgot-password', function () {
